@@ -2,12 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prithvi Poojari</title>
-  <meta name="description" content="Prithvi Poojari's personal portfolio website." />
-  <meta property="og:title" content="Prithvi Poojari" />
-  <meta property="og:description" content="A retro-futuristic portfolio terminal." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📟%3C/text%3E%3C/svg%3E" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Prithvi Manjunath Poojari · AI/ML &amp; Software Engineering</title>
+  <meta name="description" content="Prithvi Manjunath Poojari: MS Computer Science student at Northeastern University working on machine learning, LLM applications and software engineering. Open to co-op and internship roles for Spring and Summer 2027." />
+  <meta name="author" content="Prithvi Manjunath Poojari" />
+  <meta name="theme-color" content="#050301" />
+  <link rel="canonical" href="https://prithvipoojari.com/" />
+
+  <!-- link previews: WhatsApp, iMessage, LinkedIn, Slack, Discord, X ... (image is 1200x630, made from the site's look) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Prithvi Manjunath Poojari" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://prithvipoojari.com/" />
+  <meta property="og:title" content="Prithvi Manjunath Poojari · AI/ML &amp; Software Engineering" />
+  <meta property="og:description" content="MS CS @ Northeastern. Machine learning, LLM applications &amp; software engineering. Open to co-op &amp; internship roles for Spring &amp; Summer 2027." />
+  <meta property="og:image" content="https://prithvipoojari.com/assets/og-image.jpg" />
+  <meta property="og:image:secure_url" content="https://prithvipoojari.com/assets/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Prithvi Manjunath Poojari: MS CS at Northeastern University, open to co-op and internship roles for Spring and Summer 2027" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prithvi Manjunath Poojari · AI/ML &amp; Software Engineering" />
+  <meta name="twitter:description" content="MS CS @ Northeastern. Machine learning, LLM applications &amp; software engineering. Open to co-op &amp; internship roles for Spring &amp; Summer 2027." />
+  <meta name="twitter:image" content="https://prithvipoojari.com/assets/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Prithvi Manjunath Poojari: MS CS at Northeastern University, open to co-op and internship roles for Spring and Summer 2027" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <!-- applied before first paint: saved theme, and skip the boot screen on repeat visits / reduced motion -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "neon" || t === "green" || t === "blue" || t === "white") root.dataset.theme = t;
+      } catch (e) {}
+      try {
+        if (sessionStorage.getItem("booted") || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          root.classList.add("no-boot");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <noscript><style>#boot, #app { display: none !important; }</style></noscript>
 
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,104 +57,112 @@
 </head>
 <body>
 
-  <div class="flicker"></div>
+  <!-- faint hexagon grid at the screen edges (neon theme only) -->
+  <div class="hexgrid" aria-hidden="true"></div>
+
+  <noscript>
+    <main class="noscript">
+      <h1>Prithvi Manjunath Poojari</h1>
+      <p>MS Computer Science · Northeastern University. Machine learning, LLM applications and software engineering. Open to co-op &amp; internship roles for Spring &amp; Summer 2027.</p>
+      <p>
+        <a href="https://drive.google.com/file/d/1DX3vwoWQqeyxaRQkLKqqfxgQuQEYt429/view">Resume</a> ·
+        <a href="mailto:poojari.pri@northeastern.edu">Email</a> ·
+        <a href="mailto:poojari1prithvi@gmail.com">Personal email</a> ·
+        <a href="https://www.linkedin.com/in/prithvipoojari/">LinkedIn</a> ·
+        <a href="https://github.com/prithvipoojari">GitHub</a>
+      </p>
+    </main>
+  </noscript>
 
   <!-- boot screen -->
-  <div id="boot">
+  <div id="boot" aria-hidden="true">
     <div id="boot-content"></div>
-    <div class="skip-hint">[ ESC TO SKIP ]</div>
+    <div class="skip-hint"><span class="for-mouse">press any key to skip</span><span class="for-touch">tap to skip</span></div>
   </div>
 
-  <!-- main app -->
+  <!-- main app: one continuous page -->
   <div id="app">
 
-    <div class="header">
-      <div class="brand"></div>
-      <div class="right" id="clock">--:--</div>
-    </div>
+    <!-- full-width top bar, pinned while scrolling: name, section tabs, time -->
+    <header class="topbar crt-in" id="topbar">
+      <a class="brand" id="brand" href="#about"></a>
+      <nav class="tabs" id="tabs" aria-label="Sections">
+        <a class="tab active" href="#about"      data-section="about" aria-current="true"><span class="num">1</span>About</a>
+        <a class="tab"        href="#experience" data-section="experience"><span class="num">2</span>Experience</a>
+        <a class="tab"        href="#projects"   data-section="projects"><span class="num">3</span>Projects</a>
+        <a class="tab"        href="#skills"     data-section="skills"><span class="num">4</span>Skills</a>
+        <a class="tab"        href="#contact"    data-section="contact"><span class="num">5</span>Contact</a>
+      </nav>
+      <div class="clock" id="clock" title="Your local date and time"></div>
+    </header>
 
-    <nav class="tabs" id="tabs">
-      <div class="tab active" data-tab="status"    ><span class="num">1</span>STATUS</div>
-      <div class="tab"        data-tab="skills"    ><span class="num">2</span>SKILLS</div>
-      <div class="tab"        data-tab="projects"  ><span class="num">3</span>PROJECTS</div>
-      <div class="tab"        data-tab="experience"><span class="num">4</span>EXPERIENCE</div>
-      <div class="tab"        data-tab="contact"   ><span class="num">5</span>CONTACT</div>
-    </nav>
+    <!-- side rail: one segment per section card, filling as you read through it (click to jump) -->
+    <div class="rail" id="rail" aria-hidden="true"></div>
 
-    <div class="panes">
+    <main class="sections crt-in">
 
-      <!-- == STATUS == -->
-      <div class="pane active" data-pane="status">
-        <div class="row">
-          <div class="col" style="flex: 0 0 240px;">
-            <div class="vault-card">
-              <img class="me-photo" src="https://i.ibb.co/sdmrNpwT/me.jpg" alt="Prithvi Poojari" />
-            </div>
-          </div>
+      <section class="section" id="about" aria-label="About" tabindex="-1"></section>
 
-          <div class="col">
-            <h1 id="hero-name">VAULT DWELLER</h1>
-            <p id="hero-bio">[ bio loads from USER_DATA ]</p>
+      <section class="section" id="experience" aria-labelledby="experience-title" tabindex="-1">
+        <h2 class="section-title" id="experience-title"><span class="sec-num">02 //</span>Experience</h2>
+        <p class="section-sub">Work history and education.</p>
+        <div id="experience-list"></div>
+      </section>
 
-            <div class="vault-card" data-label="S.P.E.C.I.A.L.">
-              <ul class="special-list" id="special-list"></ul>
-            </div>
-          </div>
-        </div>
-      </div>
+      <section class="section" id="projects" aria-labelledby="projects-title" tabindex="-1">
+        <h2 class="section-title" id="projects-title"><span class="sec-num">03 //</span>Projects</h2>
+        <p class="section-sub">Selected work in machine learning and LLM applications.</p>
+        <div class="projects" id="project-list"></div>
+      </section>
 
-      <!-- == SKILLS == -->
-      <div class="pane" data-pane="skills">
-        <h1>// SKILLS</h1>
-        <p style="color: var(--fg-dim);">Languages, frameworks, and tools I work with.</p>
-        <div id="inv-sections"></div>
-      </div>
+      <section class="section" id="skills" aria-labelledby="skills-title" tabindex="-1">
+        <h2 class="section-title" id="skills-title"><span class="sec-num">04 //</span>Skills</h2>
+        <p class="section-sub">Languages, frameworks and tools I work with.</p>
+        <div id="skills-list"></div>
+      </section>
 
-      <!-- == PROJECTS == -->
-      <div class="pane" data-pane="projects">
-        <h1>// PROJECTS</h1>
-        <p style="color: var(--fg-dim);">Click through for details.</p>
-        <div id="quest-list"></div>
-      </div>
+      <section class="section" id="contact" aria-labelledby="contact-title" tabindex="-1">
+        <h2 class="section-title" id="contact-title"><span class="sec-num">05 //</span>Contact</h2>
+        <p class="section-sub">Email is the best way to reach me.</p>
+        <div id="contact-channels"></div>
+      </section>
 
-      <!-- == EXPERIENCE == -->
-      <div class="pane" data-pane="experience">
-        <h1>// Education and work history.</h1>
-        <p style="color: var(--fg-dim);">Career path. Each marker = territory entered.</p>
-        <div class="timeline" id="timeline"></div>
-      </div>
+    </main>
 
-      <!-- == CONTACT == -->
-      <div class="pane" data-pane="contact">
-        <h1>// CONTACT</h1>
-        <p style="color: var(--fg-dim);">Get in touch!</p>
-        <div id="radio-list"></div>
-      </div>
+    <footer class="site-footer crt-in">
+      <span>© <span id="year">2026</span> Prithvi Manjunath Poojari</span>
+      <a href="#about">Back to top ↑</a>
+    </footer>
 
-    </div>
+    <!-- "Copied" confirmation for the copy-to-clipboard buttons -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <!-- terminal -->
-    <div class="terminal">
-      <div class="terminal-out" id="term-out"></div>
+    <!-- slide-up terminal console -->
+    <section class="card console" id="console" data-label="Terminal · type help" aria-label="Interactive terminal" inert>
+      <button class="console-close" id="console-close" type="button" aria-label="Close terminal">Close ✕</button>
+      <div class="terminal-out" id="term-out" role="log" aria-live="polite"></div>
       <div class="term-input-row">
-        <span class="term-prompt">user@prithvi's-personal-portfolio:~$</span>
-        <input id="term-input" type="text" autocomplete="off" spellcheck="false" autofocus />
+        <label class="term-prompt" for="term-input"><span class="term-user">guest@prithvipoojari</span>:~$</label>
+        <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" />
       </div>
-    </div>
+    </section>
 
+    <!-- fixed status bar -->
     <div class="statusbar">
-      <div>
-        <span class="meter">HP <b id="meter-hp">100/100</b></span> &nbsp;
-        <span class="meter">AP <b>90/90</b></span> &nbsp;
-        <span class="meter">RAD <b>0</b></span> &nbsp;
-        <span class="meter">CAPS <b id="meter-caps">2287</b></span>
-      </div>
-      <div>
-        <span style="color: var(--fg);">[ press <b style="color:var(--fg-bright)">/</b> to focus terminal · type <b style="color:var(--fg-bright)">help</b> ]</span>
+      <div class="statusbar-inner">
+        <div class="status-left" id="status-left"></div>
+        <div class="status-section" id="status-section">01/05<span class="sec-label"> · About</span></div>
+        <div class="status-right">
+          <button class="status-btn" id="term-toggle" type="button" aria-controls="console" aria-expanded="false">&gt;_ Terminal <kbd>/</kbd></button>
+          <button class="status-btn" id="theme-btn" type="button" title="Change the colour theme"></button>
+        </div>
       </div>
     </div>
 
   </div>
+
+  <!-- target-lock brackets that snap around hovered links and buttons -->
+  <div class="lock" id="lock" aria-hidden="true"></div>
 
   <!-- data.js must load before app.js (USER_DATA is referenced there) -->
   <script src="data.js"></script>

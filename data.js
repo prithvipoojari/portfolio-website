@@ -1,162 +1,166 @@
 /* ========================================================================
-   USER_DATA 
-   ========================================================================*/
+   SITE CONTENT — edit this file to update the portfolio.
+   app.js renders everything below; no HTML changes needed.
+   ======================================================================== */
 
 const USER_DATA = {
 
-  // == TOP OF STATUS PANE ==========================================
-  name: "PRITHVI MANJUNATH POOJARI",
-  role: "GRAD STUDENT · AI/ML",
-  level: 3,                            // years of experience
-  bio: "An electronics and computer science engineer, currently pursuing a Master’s degree in computer science at Northeastern University with an interest to create software systems that create a positive social impact and solve complex engineering problems at a larger scale.",
+  // == PROFILE ==========================================
+  name:         "Prithvi Manjunath Poojari",
+  shortName:    "Prithvi Poojari",
+  headline:     "MS Computer Science · Northeastern University",
+  focus:        "Machine learning · LLM applications · Software engineering",
+  availability: "Open to co-op & internship roles · Spring & Summer 2027",
+  photo:        "assets/me.jpg",
+  // Google Drive "anyone with the link can view"; opens the PDF viewer in a new tab
+  resume:       "https://drive.google.com/file/d/1DX3vwoWQqeyxaRQkLKqqfxgQuQEYt429/view",
+  bio:
+    "I'm an electronics and computer science engineer pursuing a Master's in Computer Science " +
+    "at Northeastern University. I build machine learning and LLM-powered systems, including a " +
+    "published AI dermatology assistant and a clinical trial companion app, and I'm drawn to " +
+    "software that creates positive social impact and solves complex engineering problems at scale.",
 
 
-  // == S.P.E.C.I.A.L. STATS (each 1–10) ============================
-  special: [
-    { letter: "S", label: "STRENGTH",     alt: "ML / Deep Learning",         value: 8 },
-    { letter: "P", label: "PERCEPTION",   alt: "Data Analysis / EDA",        value: 8 },
-    { letter: "E", label: "ENDURANCE",    alt: "Late-night training runs",   value: 8 },
-    { letter: "C", label: "CHARISMA",     alt: "Public Speaking",            value: 7 },
-    { letter: "I", label: "INTELLIGENCE", alt: "Research / Problem solving", value: 9 },
-    { letter: "A", label: "AGILITY",      alt: "Quick prototyping",          value: 8 },
-    { letter: "L", label: "LUCK",         alt: "It compiled first try",      value: 5 },
+  // == AT A GLANCE (About tab) ==========================================
+  facts: [
+    { label: "Education", value: "MS Computer Science, Northeastern University (Khoury College)" },
+    { label: "Focus",     value: "Deep learning, RAG & LLM applications, computer vision, data analysis" },
+    { label: "Published", value: "DermAI, Indonesian Journal of Electrical Engineering and Informatics",
+      url: "https://doi.org/10.52549/ijeei.v12i4.5806", linkName: "paper" },
+    { label: "Speaking",  value: "Invited talk on implementing LLM projects" },
+    { label: "Based in",  value: "Boston, MA" },
+    { label: "Off-hours", value: "Guitarist · Gamer · Cinephile · Reader" },
   ],
 
 
-  // == INVENTORY (Skills) ==========================================
-  inventory: [
+  // == WORK EXPERIENCE (most recent first) ==========================================
+  experience: [
     {
-      category: "WEAPONS — Languages",
-      items: [
-        { name: "Python",     weight: "0.8", desc: "Primary sidearm. AI/ML loadout." },
-        { name: "Java",       weight: "1.5", desc: "Reliable. Coursework-grade." },
-        { name: "R",          weight: "2.0", desc: "Statistical precision tool." },
-        { name: "SQL",        weight: "1.4", desc: "Ranged precision against data hordes." },
-        { name: "HTML / CSS", weight: "1.6", desc: "Web-side ammunition." },
+      role:     "Technical Operations & Client Support Associate",
+      org:      "Shree Marikamba Solutions Pvt. Ltd. (SMSPL)",
+      location: "Navi Mumbai, India · Hybrid",
+      dates:    "Aug 2024 — Jul 2025",
+      bullets: [
+        "Supported site visits and field operations for CCTV surveillance projects, configuring devices ahead of technician installation.",
+        "Mapped camera placements, quantities and device types onto AutoCAD floor layouts from manual site surveys.",
+        "Presented deployed GPS tracking software to a client on-site and gathered feedback, questions and enhancement requests.",
+        "Documented client concerns and communicated requirements for follow-up actions and software changes.",
+        "Handled client inquiries, inventory checks and coordination across operations, technical and client-facing teams.",
       ],
     },
     {
-      category: "APPAREL — Frameworks & Libraries",
-      items: [
-        { name: "FastAPI",        weight: "1.4", desc: "Lightweight backend exoskeleton." },
-        { name: "React",          weight: "1.5", desc: "Daily-wear UI armor." },
-        { name: "Tailwind CSS",   weight: "0.8", desc: "Utility-class kevlar." },
-        { name: "Chainlit",       weight: "1.7", desc: "LLM chatbot gear of choice." },
-        { name: "NumPy / Pandas", weight: "0.9", desc: "Standard data-wrangling kit." },
-        { name: "scikit-learn",   weight: "1.3", desc: "Classical ML field manual." },
-        { name: "OpenCV",         weight: "2.0", desc: "Computer vision targeting system." },
-      ],
-    },
-    {
-      category: "AID — Tools & Databases",
-      items: [
-        { name: "Git",              weight: "0.5", desc: "Restores 30 productivity points. Stackable." },
-        { name: "PostgreSQL",       weight: "1.8", desc: "Relational data fortress." },
-        { name: "AstraDB",          weight: "2.4", desc: "Vector store for RAG operations." },
-        { name: "Jupyter Notebook", weight: "0.6", desc: "Scratchpad. Carry at all times." },
-        { name: "Google Colab",     weight: "0.7", desc: "Cloud GPU on tap." },
-        { name: "VS Code",          weight: "0.5", desc: "Standard issue editor." },
-        { name: "IntelliJ IDEA",    weight: "1.2", desc: "Heavy editor. Java loadout." },
-      ],
-    },
-    {
-      category: "MISC — Other",
-      items: [
-        { name: "Research / Writing", weight: "1.5", desc: "Published in IJEEI. +1 to credibility checks." },
-        { name: "Public Speaking",    weight: "1.8", desc: "Delivered invited talk on LLM project implementation." },
-        { name: "Mentoring",          weight: "1.5", desc: "IEEE student council veteran. Buffs nearby allies." },
-        { name: "Rhythm Guitar",      weight: "1.2", desc: "Off-duty class skill. Aaroha Music Club." },
+      role:     "Data Science & Scrum Manager Intern",
+      org:      "Hackveda Limited",
+      location: "Delhi, India · Remote",
+      dates:    "Jun 2023 — Feb 2024",
+      bullets: [
+        "Developed a future-location prediction system in Dataiku on an AWS EC2 instance, building predictive models from the provided dataset.",
+        "Ran exploratory data analysis for credit card fraud detection: correlation and outlier analysis to surface key variables and anomalies, PCA for feature importance, and t-SNE to visualize transaction clusters.",
+        "Analyzed student performance data to identify patterns and built a predictive model to support data-driven decisions.",
+        "Facilitated agile ceremonies as part of the scrum team, keeping sprint planning and delivery on track.",
+        "Led orientation webinars for incoming intern cohorts and reviewed interns' project presentations during scrum meetings.",
       ],
     },
   ],
 
 
-  // == PROJECTS (Quest Log) ==========================================
-  projects: [
+  // == EDUCATION ==========================================
+  education: [
     {
-      title: "PROJECT: DERMA-AI",
-      status: "done",
-      desc: "AI-driven dermatology chatbot. ResNet-50 for skin disease classification, " +
-            "RAG over AstraDB + OpenAI embeddings for personalized responses. " +
-            "Mean sensitivity 92.6%, specificity 99.8%, AUC 99.9%, hallucination 7%. " +
-            "Published in the Indonesian Journal of Electrical Engineering and Informatics.",
-      tags: ["Python", "ResNet-50", "RAG", "AstraDB", "OpenAI", "Chainlit"],
-      links: [
-        { label: "paper (DOI)", url: "https://doi.org/10.52549/ijeei.v12i4.5806" },
-      ],
-    },
-    {
-      title: "OPERATION: TRIAL COMPANION",
-      status: "active",
-      desc: "Gemini-powered clinical trial assistant. Parses dense protocol documents " +
-            "into plain-language summaries, wellness plans, and grounded Q&A. " +
-            "Gemini 2.5 Pro for parsing and summarization, Gemini Flash for quiz generation.",
-      tags: ["Python", "FastAPI", "React", "Tailwind", "Gemini 2.5 Pro", "Gemini Flash"],
-      links: [
-        { label: "github", url: "https://github.com/yourhandle/trial-companion" },
-      ],
-    },
-    {
-      title: "QUEST: NEURAL SCAN",
-      status: "done",
-      desc: "CNN-based brain tumor detector. Trained on augmented brain scan dataset. " +
-            "96.45% validation accuracy, 96.13% test accuracy.",
-      tags: ["Python", "CNN", "OpenCV", "Deep Learning"],
-      links: [
-        { label: "github", url: "https://github.com/yourhandle/brain-tumor-detection" },
-      ],
-    },
-  ],
-
-
-  // == TIMELINE (Map / career history) ==========================================
-  timeline: [
-    { when: "Jan 2026 — PRESENT", what: "Master of Science in Computer Science",               where: "Northeastern University · Khoury College of Computer Sciences · Boston, MA", 
+      degree:   "Master of Science in Computer Science",
+      school:   "Northeastern University · Khoury College of Computer Sciences",
+      location: "Boston, MA",
+      dates:    "Jan 2026 — Present",
       details: [
         "GPA: 3.834 / 4.0",
-        "Relevant Coursework: Programming Design Paradigm, Database Management Systems",
-      ], },
-    {
-      when: "August 2024 — July 2025",
-      what: "Technical Operations and Client Support Associate",
-      where: "Shree Marikamba Solutions Pvt. Ltd. (SMSPL) · Navi Mumbai, India (Hybrid)",
-      details: [
-        "Assisting with site visits and field support activities for CCTV surveillance projects.",
-        "Configuring surveillance devices for site installation by technicians.",
-        "Marking camera placement locations, quantities, and device types on AutoCAD-generated floor layouts based on manual survey details to support CCTV installation activities.",
-        "Supporting customer interactions and attending to client inquiries at the business location.",
-        "Visiting a client site to explain implemented GPS tracking software solutions and gather customer feedback, queries and enhancement requirements.",
-        "Documenting client concerns and communicating requirements for follow-up actions and software modifications.",
-        "Assisting with inventory monitoring and stock checking to support operations.",
-        "Supporting coordination activities across operational, technical, and client-facing functions as required.",
+        "Coursework: Programming Design Paradigms, Database Management Systems",
       ],
     },
-    { when: "June 2023 — February 2024",    what: "Data Science and Scrum Manager Intern",       where: "Hackveda Limited · Delhi, India (Remote)", 
-      details: [
-        "Developed a Future Location Prediction System using Dataiku deployed on an AWS EC2 instance, building predictive models from the provided dataset.",
-        "Implemented Exploratory Data Analysis (EDA) for Credit Card Fraud Detection using correlation analysis and outlier detection to identify significant variables and anomalies; applied PCA for feature importance and t-SNE to visualize transaction clusters for improved anomaly detection.",
-        "Analyzed student performance data to identify patterns and correlations, building a predictive model to support data-driven decision making.",
-        "Facilitated agile ceremonies as part of the scrum team, ensuring smooth sprint planning and delivery.",
-        "Led remote orientation webinars introducing incoming intern cohorts to the company and helping new members get oriented.",
-        "Reviewed and gave feedback on interns’ project presentations during scrum meetings to support their progress.",
-      ] },
-    { when: "June 2020 — June 2024",    what: "Bachelor of Engineering in Electronics and Computer Science", where: "University of Mumbai · India",
+    {
+      degree:   "Bachelor of Engineering in Electronics and Computer Science",
+      school:   "University of Mumbai",
+      location: "India",
+      dates:    "Jun 2020 — Jun 2024",
       details: [
         "GPA: 7.75 / 10.0",
-      ]
-     },
+      ],
+    },
   ],
 
 
-  // == RADIO (Contact links) ==========================================
-  radio: [
-    { freq: "98.6 FM",  name: "ENCLAVE RADIO — Email",     url: "mailto:poojari.pri@northeastern.edu" },
-    { freq: "101.1 FM", name: "GALAXY NEWS — GitHub",      url: "https://github.com/yourhandle" },
-    { freq: "104.3 FM", name: "DIAMOND CITY — LinkedIn",   url: "https://www.linkedin.com/in/prithvipoojari/" },
-    { freq: "107.5 FM", name: "MINUTEMEN BAND — Phone",    url: "tel:+16173730195" },
+  // == PROJECTS ==========================================
+  // status: "active" (in progress) or "done"
+  projects: [
+    {
+      name:    "DermAI",
+      tagline: "AI dermatology diagnosis assistant",
+      status:  "done",
+      badge:   "Published · IJEEI",
+      summary: "Chatbot that classifies skin conditions with a ResNet-50 model, then answers follow-up " +
+               "questions using retrieval-augmented generation over AstraDB with OpenAI embeddings " +
+               "for personalized, grounded responses.",
+      metrics: [
+        { value: "92.6%", label: "mean sensitivity" },
+        { value: "99.8%", label: "specificity" },
+        { value: "99.9%", label: "AUC" },
+        { value: "7%",    label: "hallucination rate" },
+      ],
+      tags:  ["Python", "ResNet-50", "RAG", "AstraDB", "OpenAI", "Chainlit"],
+      links: [
+        { label: "GitHub",      url: "https://github.com/prithvipoojari/DermAI" },
+        { label: "Paper (DOI)", url: "https://doi.org/10.52549/ijeei.v12i4.5806" },
+      ],
+    },
+    {
+      name:    "Trial Companion",
+      tagline: "Clinical trial assistant powered by Gemini",
+      status:  "active",
+      summary: "Turns dense clinical trial protocol documents into plain-language summaries, wellness " +
+               "plans and grounded Q&A. Gemini 2.5 Pro handles parsing and summarization; Gemini Flash " +
+               "generates quizzes.",
+      tags:  ["Python", "FastAPI", "React", "Tailwind CSS", "Gemini 2.5 Pro", "Gemini Flash"],
+      links: [],   // TODO: add { label: "GitHub", url: "..." }
+    },
+    {
+      name:    "Brain Tumor Detection",
+      tagline: "CNN classifier for brain scans",
+      status:  "done",
+      summary: "Convolutional neural network that detects brain tumors in scan images, trained on an " +
+               "augmented brain scan dataset.",
+      metrics: [
+        { value: "96.45%", label: "validation accuracy" },
+        { value: "96.13%", label: "test accuracy" },
+      ],
+      tags:  ["Python", "CNN", "OpenCV", "Deep Learning"],
+      links: [],   // TODO: add { label: "GitHub", url: "..." }
+    },
   ],
 
 
-  // == MISC ==========================================
-  caps: 2287,    
+  // == SKILLS ==========================================
+  skills: [
+    { group: "Languages",     items: ["Python", "Java", "R", "SQL", "HTML / CSS"] },
+    { group: "AI / ML",       items: ["scikit-learn", "OpenCV", "NumPy", "Pandas", "CNNs (ResNet-50)",
+                                      "RAG pipelines", "OpenAI & Gemini APIs", "Chainlit", "PCA / t-SNE"] },
+    { group: "Web & Backend", items: ["FastAPI", "React", "Tailwind CSS"] },
+    { group: "Data & Tools",  items: ["PostgreSQL", "AstraDB (vector DB)", "Git", "Jupyter", "Google Colab",
+                                      "Dataiku", "AWS EC2", "VS Code", "IntelliJ IDEA"] },
+  ],
+
+  strengths: [
+    { name: "Research & technical writing", desc: "Published DermAI in IJEEI." },
+    { name: "Public speaking",              desc: "Delivered an invited talk on implementing LLM projects." },
+    { name: "Agile / Scrum",                desc: "Facilitated sprint ceremonies as a scrum manager intern." },
+    { name: "Mentoring",                    desc: "IEEE student council member; onboarded intern cohorts at Hackveda." },
+  ],
+
+
+  // == CONTACT ==========================================
+  // every entry gets a copy button; hero: false keeps it out of the intro's button row
+  contact: [
+    { label: "Email",          value: "poojari.pri@northeastern.edu",   url: "mailto:poojari.pri@northeastern.edu" },
+    { label: "Personal email", value: "poojari1prithvi@gmail.com",      url: "mailto:poojari1prithvi@gmail.com", hero: false },
+    { label: "LinkedIn",       value: "linkedin.com/in/prithvipoojari", url: "https://www.linkedin.com/in/prithvipoojari/" },
+    { label: "GitHub",         value: "github.com/prithvipoojari",      url: "https://github.com/prithvipoojari" },
+  ],
 };
