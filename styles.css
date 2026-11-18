@@ -214,6 +214,7 @@ body::after {
   inset: 0;
   z-index: 2000;
   padding: 40px 60px;
+  padding-top: max(40px, calc(env(safe-area-inset-top, 0px) + 16px));   /* clear of the notch */
   background: var(--bg-deep);
   color: var(--fg);
   font-size: 16px;
@@ -278,9 +279,22 @@ body::after {
   grid-template-columns: auto minmax(0, 1fr) auto;
   grid-template-areas: "brand tabs clock";
   align-items: stretch;
-  padding: 0 var(--side-r) 0 var(--side-l);
+  /* top padding clears the iPhone status bar / notch where the page extends under it */
+  padding: env(safe-area-inset-top, 0px) var(--side-r) 0 var(--side-l);
   background: var(--bg-deep);
   border-bottom: 2px solid var(--fg);
+}
+/* opaque strip above the bar: some phone browsers (e.g. Brave on iPhone) pin the bar just below the
+   status bar but still draw scrolled content behind it; this covers that area so nothing shows through */
+.topbar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 100vh;
+  background: var(--bg-deep);
+  pointer-events: none;
 }
 .brand {
   grid-area: brand;
@@ -351,7 +365,7 @@ body::after {
   .topbar {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas: "brand clock" "tabs tabs";
-    padding: 0;
+    padding: env(safe-area-inset-top, 0px) 0 0;
   }
   .brand { padding: 8px 12px 8px var(--side-l); }
   .clock { padding: 8px var(--side-r) 8px 12px; font-size: 14px; }
@@ -369,8 +383,8 @@ body::after {
   z-index: 780;
   top: calc(var(--nav-h) + var(--card-gap) + 8px);
   bottom: calc(var(--status-h) + var(--safe-b) + var(--card-gap) + 8px);
-  /* just outside the card column on wide screens, at the screen edge otherwise */
-  right: max(8px, calc((100vw - 1032px) / 2 - 30px));
+  /* left of the card column on wide screens; at the screen edge (clear of a landscape notch) otherwise */
+  left: max(6px, calc(env(safe-area-inset-left, 0px) - 10px), calc(50% - 556px));
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -406,7 +420,7 @@ body::after {
 .seg .lbl {
   position: absolute;
   top: -2px;
-  left: 20px;
+  right: 20px;   /* numbers sit on the outer side of the rail, away from the cards */
   color: var(--fg-dim);
   font: 11px/1 var(--font-display);
   letter-spacing: 0.1em;
@@ -1112,13 +1126,13 @@ body::after {
   .photo-frame { width: 160px; }
   .skills-grid,
   .strengths { grid-template-columns: 1fr; }
-  /* rail sits in the screen-edge gutter */
-  .rail { right: 3px; width: 8px; gap: 6px; }
+  /* rail sits in the left screen-edge gutter */
+  .rail { left: max(3px, calc(env(safe-area-inset-left, 0px) - 10px)); width: 8px; gap: 6px; }
 }
 @media (max-width: 560px) {
   :root { --gutter: 16px; --card-gap: 10px; --card-pad-x: 16px; --card-pad-y: 28px; --console-h: min(52vh, 320px); }
   body { font-size: 14px; }
-  #boot { padding: 20px 16px; font-size: 13px; }
+  #boot { padding: 20px 16px; padding-top: max(20px, calc(env(safe-area-inset-top, 0px) + 12px)); font-size: 13px; }
   .brand { font-size: 13px; letter-spacing: 0.08em; }
   /* date above time, so both fit next to the full name */
   .clock {
@@ -1179,6 +1193,7 @@ body::after {
   .brand,
   .clock { padding-top: 4px; padding-bottom: 4px; }
   .tab { padding-top: 7px; padding-bottom: 7px; }
+  .rail { width: 8px; }   /* stays in the gutter beside a landscape notch */
   /* availability is already in the intro; keep the bar to section + buttons */
   .statusbar-inner { grid-template-columns: auto minmax(0, 1fr); }
   .status-left { display: none; }
