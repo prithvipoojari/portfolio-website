@@ -6,15 +6,15 @@
 
 
 /* == THEMES ========================================== */
-/* amber is the default; the others are set via <html data-theme="..."> */
+/* white is the default; the others are set via <html data-theme="..."> */
 :root {
-  --bg-deep:   #050301;
-  --fg:        #ffb84a;
-  --fg-bright: #ffe1a8;
-  --fg-dim:    #b07a35;
-  --fg-faint:  rgba(255, 184, 74, 0.18);
-  --glow:      rgba(255, 184, 74, 0.50);
-  --glow-soft: rgba(255, 184, 74, 0.18);
+  --bg-deep:   #030303;
+  --fg:        #e8e8e8;
+  --fg-bright: #ffffff;
+  --fg-dim:    #8a8a8a;
+  --fg-faint:  rgba(232, 232, 232, 0.16);
+  --glow:      rgba(255, 255, 255, 0.40);
+  --glow-soft: rgba(255, 255, 255, 0.14);
   --scanline:  rgba(0, 0, 0, 0.14);
   --warn:      #ffd36b;
   --err:       #ff6a5a;
@@ -23,8 +23,8 @@
   --accent:      var(--fg-bright);
   --accent-glow: var(--glow);
   /* contrast colour for the 1s and 0s when a card dissolves */
-  --matrix:      #3ee8ff;
-  --matrix-glow: rgba(62, 232, 255, 0.5);
+  --matrix:      #4afa7b;
+  --matrix-glow: rgba(74, 250, 123, 0.5);
 
   --font-body:    'JetBrains Mono', ui-monospace, Consolas, monospace;
   --font-display: 'Share Tech Mono', 'JetBrains Mono', ui-monospace, monospace;
@@ -66,16 +66,16 @@
   --matrix:      #ffb84a;
   --matrix-glow: rgba(255, 184, 74, 0.5);
 }
-:root[data-theme="white"] {
-  --bg-deep:   #030303;
-  --fg:        #e8e8e8;
-  --fg-bright: #ffffff;
-  --fg-dim:    #8a8a8a;
-  --fg-faint:  rgba(232, 232, 232, 0.16);
-  --glow:      rgba(255, 255, 255, 0.40);
-  --glow-soft: rgba(255, 255, 255, 0.14);
-  --matrix:      #4afa7b;
-  --matrix-glow: rgba(74, 250, 123, 0.5);
+:root[data-theme="amber"] {
+  --bg-deep:   #050301;
+  --fg:        #ffb84a;
+  --fg-bright: #ffe1a8;
+  --fg-dim:    #b07a35;
+  --fg-faint:  rgba(255, 184, 74, 0.18);
+  --glow:      rgba(255, 184, 74, 0.50);
+  --glow-soft: rgba(255, 184, 74, 0.18);
+  --matrix:      #3ee8ff;
+  --matrix-glow: rgba(62, 232, 255, 0.5);
 }
 /* cyberpunk palette: red display with cyan data highlights */
 :root[data-theme="neon"] {

@@ -19,7 +19,7 @@ const $  = (sel, el = document) => el.querySelector(sel);
 const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
 
 const SECTIONS = ["about", "experience", "projects", "skills", "contact"];   // page order
-const THEMES   = ["amber", "green", "blue", "white", "neon"];                 // first one is the default
+const THEMES   = ["white", "amber", "green", "blue", "neon"];                 // first one is the default
 
 const matches       = (query) => window.matchMedia(query).matches;
 const reducedMotion = () => matches("(prefers-reduced-motion: reduce)");
