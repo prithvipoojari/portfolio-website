@@ -63,13 +63,9 @@ Save the file. Refresh the browser. Done.
 
 ### Change the default theme
 
-In `app.js`, find Section 8 (INIT) and add a line before `renderAll()`:
-
-```javascript
-document.body.classList.add("theme-amber");  // or theme-blue, theme-white
-```
-
-Or just let visitors switch themes themselves via the terminal: `theme amber`.
+Set the `data-theme` attribute on the opening `<html>` tag in `index.html`.
+It defaults to `neon`. The theme button and terminal commands such as
+`theme amber` save a visitor's choice for future visits.
 
 ### Add a new theme color
 

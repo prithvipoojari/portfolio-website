@@ -1,12 +1,12 @@
 /* ========================================================================
    STYLES — Pip-Boy style CRT terminal on one continuous scrolling page.
    Full-width top and bottom bars frame a centered column of section cards.
-   The optional "neon" theme switches to a two-colour cyberpunk palette.
+   The neon theme uses a two-colour cyberpunk palette.
    ======================================================================== */
 
 
 /* == THEMES ========================================== */
-/* white is the default; the others are set via <html data-theme="..."> */
+/* The white palette and shared variables are the base for all themes. */
 :root {
   --bg-deep:   #030303;
   --fg:        #e8e8e8;

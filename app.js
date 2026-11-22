@@ -19,7 +19,7 @@ const $  = (sel, el = document) => el.querySelector(sel);
 const $$ = (sel, el = document) => [...el.querySelectorAll(sel)];
 
 const SECTIONS = ["about", "experience", "projects", "skills", "contact"];   // page order
-const THEMES   = ["white", "amber", "green", "blue", "neon"];                 // first one is the default
+const THEMES   = ["white", "amber", "green", "blue", "neon"];                 // theme button cycle order
 
 const matches       = (query) => window.matchMedia(query).matches;
 const reducedMotion = () => matches("(prefers-reduced-motion: reduce)");
@@ -718,12 +718,11 @@ function tickClock() {
 
 // == THEME ==========================================
 const themeBtn = $("#theme-btn");
-const currentTheme = () => root.dataset.theme || THEMES[0];
+const currentTheme = () => root.dataset.theme;
 
 function setTheme(name, save = true) {
   if (!THEMES.includes(name)) return false;
-  if (name === THEMES[0]) delete root.dataset.theme;
-  else root.dataset.theme = name;
+  root.dataset.theme = name;
   themeBtn.innerHTML = `<span class="theme-label">Theme: </span>${esc(name)}`;
   updateCursor();
   if (save) store.set("theme", name);
