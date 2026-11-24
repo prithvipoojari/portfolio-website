@@ -861,6 +861,15 @@ body::after {
 .project-badges { display: flex; flex-wrap: wrap; gap: 8px; }
 .project-tagline { margin: 2px 0 10px; color: var(--fg-dim); }
 .project-summary { max-width: 84ch; margin: 0; }
+/* for team projects: what I built */
+.project-role { max-width: 84ch; margin: 10px 0 0; color: var(--fg-bright); }
+.project-role .k {
+  margin-right: 10px;
+  color: var(--fg-dim);
+  font: 12px var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
 .metrics {
   display: grid;

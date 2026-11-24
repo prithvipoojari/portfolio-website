@@ -225,6 +225,7 @@ function renderProjects() {
         </header>
         <p class="project-tagline">${esc(p.tagline)}</p>
         <p class="project-summary">${esc(p.summary)}</p>
+        ${p.role ? `<p class="project-role"><span class="k">My role</span>${esc(p.role)}</p>` : ""}
         ${p.metrics && p.metrics.length ? `
           <ul class="metrics">
             ${p.metrics.map(m => `<li><b>${esc(m.value)}</b><span>${esc(m.label)}</span></li>`).join("")}

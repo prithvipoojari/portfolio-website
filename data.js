@@ -112,6 +112,28 @@ const USER_DATA = {
       ],
     },
     {
+      name:    "SentinelDesk",
+      tagline: "Multilingual IT-support triage agent (English & German)",
+      status:  "done",
+      badge:   "Hackathon · Team of 5",
+      summary: "Reads incoming support tickets in English or German, predicts their type, queue and priority, " +
+               "and retrieves similar resolved tickets across both languages. A rule-based safety gate routes " +
+               "each ticket to the on-call engineer, human review, or a Gemini-drafted reply that may only state " +
+               "facts from cited past resolutions. PII is masked before any text reaches the LLM, and nothing is " +
+               "sent without human approval. Built in a 5-hour hackathon.",
+      role:    "Agent: escalation gate, grounded reply drafting, citation validation",
+      metrics: [
+        { value: "90.7%", label: "high-priority escalation recall" },
+        { value: "100%",  label: "citation validity" },
+        { value: "0.878", label: "type macro-F1" },
+        { value: "40 ms", label: "median triage latency" },
+      ],
+      tags:  ["Python", "FastAPI", "Gemini", "Sentence Transformers", "FAISS", "scikit-learn", "React", "TypeScript"],
+      links: [
+        { label: "GitHub", url: "https://github.com/prithvipoojari/GDG-cloudburst" },
+      ],
+    },
+    {
       name:    "Trial Companion",
       tagline: "Clinical trial assistant powered by Gemini",
       status:  "active",
